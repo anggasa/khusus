@@ -66,9 +66,6 @@ sysv-rc-conf exim4 off
 # update apt-file
 apt-file update
 
-# setting vnstat
-vnstat -u -i venet0
-service vnstat restart
 
 # install screenfetch
 cd
@@ -211,12 +208,6 @@ dpkg -i --force-all webmin-current.deb;
 apt-get -y -f install;
 rm /root/webmin-current.deb
 service webmin restart
-service vnstat restart
-
-# install pptp vpn
-#wget https://raw.githubusercontent.com/anggasa/worm/master/pptpinstall.sh
-#chmod +x pptpinstall.sh
-#./pptpinstall.sh
 
 # download script
 cd
@@ -256,7 +247,7 @@ cd
 # finishing
 chown -R www-data:www-data /home/vps/public_html
 service cron restart
-service nginx start
+service nginx restart
 service php-fpm start
 service vnstat restart
 #service openvpn restart
